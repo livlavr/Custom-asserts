@@ -2,7 +2,7 @@
 #include <stdarg.h>
 
 #include "color_printf.h"
-#include "assert.h"
+#include "custom_asserts.h"
 
 void style_selector(MY_COLOR color, FORMAT font)
 {
@@ -40,7 +40,7 @@ void style_selector(MY_COLOR color, FORMAT font)
 
 int color_printf(MY_COLOR color, FORMAT font, const char * format_line, ...)
 {
-    assert(format_line != NULL);
+    check_expression(format_line, POINTER_IS_NULL);
 
     va_list arguments;
     style_selector(color, font);
