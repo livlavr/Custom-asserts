@@ -1,6 +1,8 @@
 #ifndef CUSTOM_ASSERTS_H_
 #define CUSTOM_ASSERTS_H_
 
+#include <stdlib.h>
+
 #include "Color/color_printf.h"
 
 enum TYPE_OF_ERROR
@@ -14,14 +16,15 @@ enum TYPE_OF_ERROR
     CALLOC_ERROR    = 6,
     VALUE_ERROR     = 7,
     INPUT_ERROR     = 8,
-    PROGRAM_ERROR   = 9
+    PROGRAM_ERROR   = 9,
+    OKEY            = 10
 };
 
 #define warning(condition, message) do                                                     \
 {                                                                                          \
     if(!(condition))                                                                      \
     {                                                                                      \
-        color_printf(RED_TEXT, BOLD, "ERROR %s : %s, file: %s, function: %s, line: %d\n",  \
+        color_printf(RED_COLOR, BOLD, "ERROR %s : %s, file: %s, function: %s, line: %d\n",  \
         #condition, #message, __FILE__, __FUNCTION__, __LINE__);                           \
         exit(message);                                                                     \
     }                                                                                      \
@@ -33,7 +36,7 @@ enum TYPE_OF_ERROR
     {                                                                                          \
         if(!(condition))                                                                      \
         {                                                                                      \
-            color_printf(YELLOW_TEXT, BOLD, "ERROR %s : %s, file: %s, function: %s, line: %d\n",\
+            color_printf(YELLOW_COLOR, BOLD, "ERROR %s : %s, file: %s, function: %s, line: %d\n",\
                         #condition, #message, __FILE__, __FUNCTION__, __LINE__);               \
             printf("\n");                                                                      \
             return message;                                                                    \

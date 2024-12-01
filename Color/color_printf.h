@@ -5,10 +5,10 @@
 /// Output color variables
 enum MY_COLOR
 {
-    DEFAULT_TEXT     = 0,  /**< Value for default output color */
-    GREEN_TEXT       = 32, /**< Value for green output color */
-    RED_TEXT         = 31, /**< Value for red output color */
-    YELLOW_TEXT      = 33  /**< Value for yellow output color */
+    DEFAULT_COLOR     = 0,  /**< Value for default output color */
+    GREEN_COLOR       = 32, /**< Value for green output color */
+    RED_COLOR         = 31, /**< Value for red output color */
+    YELLOW_COLOR      = 33  /**< Value for yellow output color */
 };
 
 /// @brief An enum type

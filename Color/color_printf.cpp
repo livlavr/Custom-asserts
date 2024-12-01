@@ -20,16 +20,16 @@ void style_selector(MY_COLOR color, FORMAT font)
     }
     switch(color)
     {
-        case GREEN_TEXT:
+        case GREEN_COLOR:
             printf("\033[32m");
             break;
-        case RED_TEXT:
+        case RED_COLOR:
             printf("\033[31m");
             break;
-        case YELLOW_TEXT:
+        case YELLOW_COLOR:
             printf("\033[33m");
             break;
-        case DEFAULT_TEXT:
+        case DEFAULT_COLOR:
             printf("\033[0m");
             break;
         default:
@@ -47,6 +47,6 @@ int color_printf(MY_COLOR color, FORMAT font, const char * format_line, ...)
     va_start(arguments, format_line);
     vprintf(format_line, arguments);
     va_end(arguments);
-    style_selector(DEFAULT_TEXT, REGULAR);
+    style_selector(DEFAULT_COLOR, REGULAR);
     return 0;
 }
