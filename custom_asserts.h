@@ -7,8 +7,7 @@
 
     #define warning(condition, message) do                                                      \
     {                                                                                           \
-        int condition_return = condition;                                                       \
-        if (!(condition_return))                                                                \
+        if (!(condition))                                                                       \
         {                                                                                       \
             color_printf(YELLOW_COLOR, BOLD, "ERROR %s : %s, file: %s, function: %s, line: %d\n",\
                         #condition, #message, __FILE__, __FUNCTION__, __LINE__);                \
@@ -19,18 +18,19 @@
 
     #define customAssert(condition, message) do                                                 \
     {                                                                                           \
+        int condition_return = condition;                                                       \
         if (!(condition))                                                                       \
         {                                                                                       \
             color_printf(YELLOW_COLOR, BOLD, "ERROR %s : %s, file: %s, function: %s,            \
                         line: %d\n", #condition, #message, __FILE__, __FUNCTION__, __LINE__);   \
             printf("\n");                                                                       \
-            exit(0);                                                                            \
+            exit(condition_return);                                                             \
         }                                                                                       \
     } while(0)
 
 #else
 
-    #define check_expression(condition, message)
+    #define customAssert(condition, message)
 
     #define warning(condition, message)
 
